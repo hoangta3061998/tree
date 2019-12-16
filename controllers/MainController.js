@@ -123,6 +123,31 @@ app.controller("MainController", [
           }
         }
         $scope.selected.val = getSelected($scope.tree);
+        $scope.totalSite = $scope.countSite($scope.tree);
     },true);
+    $scope.countSite = function(node) {
+      function count(item) {
+        try {
+          var c = 0;
+          if (item.children.site && item.children.site.length > 0) {
+            let matchedItem = item.children.site.filter(element => {
+              return element.isMatched === true;
+            });
+            c += matchedItem.length;
+          }
+          if (item.children.organisation.length > 0) {
+            item.children.organisation.forEach(element => {
+              c += count(element);
+            });
+          }
+          return c;
+        } catch (err) {
+          console.log(err);
+        }
+      }
+
+      return count(node);
+    };
+    $scope.totalSite = $scope.countSite($scope.node);
   }
 ]);
