@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="tree.css" />
+    <script language="javascript" src="libs/angular.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="header-icon">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+      <div class="main" ng-app="myApp" ng-controller="MainController">
+        <div class="sidebar">
+          <div class="sidebar-icon"></div>
+          <div class="sidebar-content" ng-show="showContent">
+            <div class="sidebar-content-header">
+              <div class="perimetre">
+                <a>Perimetre</a>
+              </div>
+              <div class="minimize-icon">
+                <!-- <a ng-click="minimize()">-</a> -->
+                <i class="fa fa-window-minimize fa-xs" aria-hidden="true" ng-click="minimize()"></i>
+              </div>
+            </div>
+            <div class="sidebar-main">
+              <div><a class="filtres">Filtres({{selected.val}})</a></div>
+              <div class="addBtn"><a>+</a></div>
+              <form ng-submit="search()">
+                <input
+                  type="text"
+                  placeholder="Enter search"
+                  ng-model="searchString"
+                />
+              </form>
+              <li>
+                <input ng-click="checkNode(node)" type="checkbox" ng-checked="node.checked" style="list-style-type: none;">
+                <span style="font-weight: bold;">
+                     Tout selectioner
+                </span>
+              </li>
+              <ul class="tree">
+                <organisation-tree children="tree"></organisation-tree>
+              </ul>
+            </div>
+          </div>
+          <div class="sidebar-mini" ng-show="!showContent">
+            <div>Perimetre</div>
+            <div class="maximize-ic"><i class="fas fa-plus fa-xs" ng-click="minimize()"></i></div>
+          </div>
+        </div>
+
+        <div class="content"></div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+    <script src="controllers/MainController.js"></script>
+    <script src="services/MyService.js"></script>
+    <script src="directives/TreeDirectives.js"></script>
+  </body>
+</html>

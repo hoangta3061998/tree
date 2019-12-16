@@ -1,0 +1,896 @@
+{
+  "code": "energismeanalysis",
+  "children": {
+    "organisation": [
+      {
+        "code": "ROYAUMEUNI",
+        "children": {
+          "organisation": []
+        },
+        "name": "Royaume-Uni",
+        "type": "1"
+      },
+      {
+        "code": "ESPAGNE",
+        "children": {
+          "site": [
+            {
+              "address": "Av. Mayorazgo",
+              "code": "DEMO23",
+              "geo_position": {
+                "lon": "-3.430168",
+                "lat": "40.293343"
+              },
+              "city": "Madrid",
+              "name": "Copro Roi d'Espagne",
+              "postal_code": "2000"
+            },
+            {
+              "address": "Av. del Carrilet",
+              "code": "DEMO24",
+              "geo_position": {
+                "lon": "2.375404",
+                "lat": "41.742355"
+              },
+              "city": "Barcelone",
+              "name": "Centre du2019accueil",
+              "postal_code": "98735"
+            },
+            {
+              "code": "Diep",
+              "geo_position": {
+                "lon": "0.0",
+                "lat": "0.0"
+              },
+              "name": "Diep"
+            },
+            {
+              "code": "ANA_ Demo1",
+              "geo_position": {
+                "lon": "2.9",
+                "lat": "45.0"
+              },
+              "city": "Bar",
+              "name": "ANA Demo1",
+              "postal_code": "98763"
+            }
+          ],
+          "organisation": []
+        },
+        "name": "Espagne",
+        "type": "1"
+      },
+      {
+        "code": "ITALIE",
+        "children": {
+          "site": [
+            {
+              "address": "Viale Beatrice d'Este",
+              "code": "DEMO22",
+              "geo_position": {
+                "lon": "9.314221",
+                "lat": "45.37462"
+              },
+              "city": "Milan",
+              "name": "Forum du Bâtiment",
+              "postal_code": "2000"
+            },
+            {
+              "address": "Viale Aventino",
+              "code": "DEMO21",
+              "geo_position": {
+                "lon": "12.575048",
+                "lat": "41.78949"
+              },
+              "city": "Rome",
+              "name": "Autobar Nord Est",
+              "postal_code": "2000"
+            },
+            {
+              "address": "Turners Meadow Way",
+              "code": "DEMO10",
+              "geo_position": {
+                "lon": "-0.035908",
+                "lat": "51.409035"
+              },
+              "city": "Londres",
+              "name": "Air liquide",
+              "postal_code": "92100"
+            }
+          ],
+          "organisation": []
+        },
+        "name": "Italie",
+        "type": "1"
+      },
+      {
+        "code": "FRANCE",
+        "children": {
+          "site": [
+            {
+              "address": "Boulevard des Belges",
+              "code": "DEMO8",
+              "geo_position": {
+                "lon": "2.33134",
+                "lat": "43.610767"
+              },
+              "city": "Montpellier",
+              "name": "Centre technique du2019exploitation 9",
+              "postal_code": "92100"
+            }
+          ],
+          "organisation": [
+            {
+              "code": "FRANCE_ESPACEVERT",
+              "children": {
+                "site": [
+                  {
+                    "address": "Rue Paul Bert",
+                    "code": "DEMO43",
+                    "geo_position": {
+                      "lon": "3.133",
+                      "lat": "44.9877"
+                    },
+                    "city": "Avignon",
+                    "name": "Espace vert 1",
+                    "postal_code": "13000"
+                  },
+                  {
+                    "address": "Rue de l'Eglise",
+                    "code": "DEMO9",
+                    "geo_position": {
+                      "lon": "2.123222",
+                      "lat": "44.837788"
+                    },
+                    "city": "Bordeaux",
+                    "name": "Espace vert 2",
+                    "postal_code": "92100"
+                  }
+                ],
+                "organisation": [
+                  {
+                    "code": "FRANCE_ESPACEVERT_PARC",
+                    "children": {
+                      "site": [
+                        {
+                          "address": "Route de la Reine",
+                          "code": "DEMO37",
+                          "geo_position": {
+                            "lon": "3.0",
+                            "lat": "50.000988"
+                          },
+                          "city": "Avignon",
+                          "name": "Parc d'Avignon",
+                          "postal_code": "84000"
+                        },
+                        {
+                          "address": "Allee de l'Arche",
+                          "code": "DEMO42",
+                          "geo_position": {
+                            "lon": "3.22",
+                            "lat": "44.0"
+                          },
+                          "city": "Avignon",
+                          "name": "Parc floral",
+                          "postal_code": "12000"
+                        },
+                        {
+                          "address": "Rue de Bonnel",
+                          "code": "DEMO1",
+                          "geo_position": {
+                            "lon": "2.352222",
+                            "lat": "48.856613"
+                          },
+                          "city": "Paris",
+                          "name": "Jardin des plantes",
+                          "postal_code": "92100"
+                        },
+                        {
+                          "address": "test1186a",
+                          "code": "test1186a",
+                          "geo_position": {
+                            "lon": "12.0",
+                            "lat": "12.0"
+                          },
+                          "name": "test1186a"
+                        }
+                      ],
+                      "organisation": []
+                    },
+                    "name": "Parc",
+                    "type": "3"
+                  },
+                  {
+                    "code": "FRANCE_ESPACEVERT_JARDIN",
+                    "children": {
+                      "site": [
+                        {
+                          "address": "Avenue du General Leclerc",
+                          "code": "DEMO2",
+                          "geo_position": {
+                            "lon": "3.3697798",
+                            "lat": "43.296482"
+                          },
+                          "city": "Marseille",
+                          "name": "Jardin des plantes",
+                          "postal_code": "92100"
+                        },
+                        {
+                          "address": "Allee des marguerites",
+                          "code": "DEMO36",
+                          "geo_position": {
+                            "lon": "2.0",
+                            "lat": "48.08877"
+                          },
+                          "city": "Orléans",
+                          "name": "Jardin des plantes",
+                          "postal_code": "84000"
+                        },
+                        {
+                          "address": "Mellor Rd fhf vcbcbvc rgdgfdv vbvn6v vvnvbc vbvcbvc Mellor Rd fhf vcbcbvc rgfdgfdv vbvnv vvnvbc vbvcbvcMellor Rd fhf vcbcbvc rgfdgfdv vbvnv vvnvbc vbvcbvcMellor Rd fhf vcbcbvc rgfdgfdv vbvnv vvnvbc vbvcbvc",
+                          "code": "DEMO15",
+                          "geo_position": {
+                            "lon": "-2.0",
+                            "lat": "53.38014"
+                          },
+                          "city": "Liverpool",
+                          "name": "Microelectronis",
+                          "postal_code": "1012p"
+                        }
+                      ],
+                      "organisation": []
+                    },
+                    "name": "Jardin",
+                    "type": "3"
+                  }
+                ]
+              },
+              "name": "Espace vert",
+              "type": "2"
+            },
+            {
+              "code": "FRANCE_SANTE",
+              "children": {
+                "site": [
+                  {
+                    "address": "Rue de l'Eglise",
+                    "code": "DEMO35",
+                    "geo_position": {
+                      "lon": "2.3737",
+                      "lat": "47.0888"
+                    },
+                    "city": "Bourges",
+                    "name": "Centre de Jour Personnes Agées",
+                    "postal_code": "75015"
+                  },
+                  {
+                    "address": "Place de l'Hotel de Ville",
+                    "code": "DEMO32",
+                    "geo_position": {
+                      "lon": "8.8",
+                      "lat": "39.5"
+                    },
+                    "city": "Château Bernard",
+                    "name": "Clinique Chatelguyon",
+                    "postal_code": "16100"
+                  }
+                ],
+                "organisation": [
+                  {
+                    "code": "FRANCE_SANTE_EHPAD",
+                    "children": {
+                      "site": [
+                        {
+                          "address": "88, avenue du General Leclerc",
+                          "code": "DEMO28",
+                          "geo_position": {
+                            "lon": "2.236022",
+                            "lat": "48.83159"
+                          },
+                          "city": "Boulogne-Billancourt",
+                          "name": "EHPAD les Signolles",
+                          "postal_code": "92100"
+                        }
+                      ],
+                      "organisation": []
+                    },
+                    "name": "EHPAD",
+                    "type": "3"
+                  },
+                  {
+                    "code": "FRANCE_SANTE_HOPITAL",
+                    "children": {
+                      "site": [
+                        {
+                          "address": "Rue de la Part-Dieu",
+                          "code": "DEMO29",
+                          "geo_position": {
+                            "lon": "4.7793",
+                            "lat": "45.75265"
+                          },
+                          "city": "Lyon",
+                          "name": "CHU de Lyon",
+                          "postal_code": "69003"
+                        },
+                        {
+                          "address": "Rue de l'Hopital",
+                          "code": "DEMO26",
+                          "geo_position": {
+                            "lon": "2.39387",
+                            "lat": "48.02155"
+                          },
+                          "city": "Orléans",
+                          "name": "Hôpital de Montluçon",
+                          "postal_code": "67000"
+                        },
+                        {
+                          "address": "Rue Honore d'Estiennes d'Orves",
+                          "code": "DEMO31",
+                          "geo_position": {
+                            "lon": "4.086882",
+                            "lat": "48.189682"
+                          },
+                          "city": "Troyes",
+                          "name": "Centre hospitalier de Guéret",
+                          "postal_code": "75010"
+                        }
+                      ],
+                      "organisation": []
+                    },
+                    "name": "Hôpital",
+                    "type": "3"
+                  }
+                ]
+              },
+              "name": "Santé",
+              "type": "2"
+            },
+            {
+              "code": "FRANCE_COMMERCE",
+              "children": {
+                "site": [
+                  {
+                    "address": "Rue du General Leclerc",
+                    "code": "DEMO40",
+                    "geo_position": {
+                      "lon": "3.138151",
+                      "lat": "45.76908"
+                    },
+                    "city": "Clérmont-Ferrand",
+                    "name": "Supermarché",
+                    "postal_code": "50110"
+                  },
+                  {
+                    "address": "Allee de l'Arche",
+                    "code": "DEMO12",
+                    "geo_position": {
+                      "lon": "2.32548",
+                      "lat": "48.87659"
+                    },
+                    "city": "Courbevoie",
+                    "name": "Centre commercial",
+                    "postal_code": "75008"
+                  }
+                ],
+                "organisation": []
+              },
+              "name": "Commerce",
+              "type": "2"
+            },
+            {
+              "code": "FRANCE_INDUSTRIE",
+              "children": {
+                "site": [
+                  {
+                    "address": "Rue Solferino",
+                    "code": "DEMO25",
+                    "geo_position": {
+                      "lon": "2.01833",
+                      "lat": "47.988"
+                    },
+                    "city": "Lille",
+                    "name": "Parc industriel de la Plaine de l'Ain",
+                    "postal_code": "59000"
+                  },
+                  {
+                    "address": "Rue Paul Bert",
+                    "code": "DEMO39",
+                    "geo_position": {
+                      "lon": "2.55",
+                      "lat": "47.909"
+                    },
+                    "city": "Lorris",
+                    "name": "Exxelia Temex",
+                    "postal_code": "34000"
+                  },
+                  {
+                    "address": "Rue Ferdinand Buisson",
+                    "code": "DEMO30",
+                    "geo_position": {
+                      "lon": "4.028",
+                      "lat": "45.6134"
+                    },
+                    "city": "Lucay le Male",
+                    "name": "Electronic Development",
+                    "postal_code": "36360"
+                  },
+                  {
+                    "address": "Rue de la Part-Dieu",
+                    "code": "DEMO3",
+                    "geo_position": {
+                      "lon": "3.8356588",
+                      "lat": "45.76404"
+                    },
+                    "city": "Lyon",
+                    "name": "Parc Industriel Delta Sud",
+                    "postal_code": "92100"
+                  }
+                ],
+                "organisation": []
+              },
+              "name": "Industrie",
+              "type": "2"
+            },
+            {
+              "code": "FRANCE_HOTEL",
+              "children": {
+                "site": [
+                  {
+                    "address": "Rue de Bonnel",
+                    "code": "DEMO27",
+                    "geo_position": {
+                      "lon": "2.97262",
+                      "lat": "44.17183"
+                    },
+                    "city": "Lyon",
+                    "name": "Hotel Victoria",
+                    "postal_code": "69003"
+                  }
+                ],
+                "organisation": []
+              },
+              "name": "Hotel",
+              "type": "2"
+            },
+            {
+              "code": "FRANCE_GROUPESCOLAIRE",
+              "children": {
+                "site": [
+                  {
+                    "address": "Avenue Jean Jaures",
+                    "code": "DEMO33",
+                    "geo_position": {
+                      "lon": "5.273961",
+                      "lat": "43.44694"
+                    },
+                    "city": "Marseille",
+                    "name": "Institution des Chartreux",
+                    "postal_code": "44550"
+                  },
+                  {
+                    "address": "Rue des Abbès Dupont",
+                    "code": "DEMO19",
+                    "geo_position": {
+                      "lon": "3.226138",
+                      "lat": "51.20881"
+                    },
+                    "city": "Bruges",
+                    "name": "Collège-Lycée Saint Joseph Nay",
+                    "postal_code": "8000"
+                  }
+                ],
+                "organisation": []
+              },
+              "name": "Groupe scolaire",
+              "type": "2"
+            },
+            {
+              "code": "FRANCE_RESIDENCE",
+              "children": {
+                "site": [
+                  {
+                    "address": "Rue Taine",
+                    "code": "DEMO41",
+                    "geo_position": {
+                      "lon": "3.761945",
+                      "lat": "43.565895"
+                    },
+                    "city": "Montpellier",
+                    "name": "Résidence Coty",
+                    "postal_code": "75012"
+                  },
+                  {
+                    "address": "Place de l'Hotel de Ville",
+                    "code": "DEMO6",
+                    "geo_position": {
+                      "lon": "2.22",
+                      "lat": "47.218372"
+                    },
+                    "city": "Saint Laurent",
+                    "name": "Résidence étudianta",
+                    "postal_code": "92100"
+                  },
+                  {
+                    "address": "Allee des marguerites",
+                    "code": "DEMO45",
+                    "geo_position": {
+                      "lon": "-1.491777",
+                      "lat": "47.138744"
+                    },
+                    "city": "Nantes",
+                    "name": "Résidences de la Pradelle",
+                    "postal_code": "15000"
+                  },
+                  {
+                    "address": "Rue Honore d'Estiennes d'Orves",
+                    "code": "DEMO5",
+                    "geo_position": {
+                      "lon": "7.2619534",
+                      "lat": "43.710175"
+                    },
+                    "city": "Nice",
+                    "name": "Résidences Saint-Martial",
+                    "postal_code": "92100"
+                  }
+                ],
+                "organisation": [
+                  {
+                    "code": "FRANCE_RESIDENCE_LOGEMENT",
+                    "children": {
+                      "site": [
+                        {
+                          "address": "Rue Paul Bert",
+                          "code": "DEMO13",
+                          "geo_position": {
+                            "lon": "2.333211",
+                            "lat": "48.871506"
+                          },
+                          "city": "Paris",
+                          "name": "Résidence Miranto",
+                          "postal_code": "75009"
+                        }
+                      ],
+                      "organisation": []
+                    },
+                    "name": "Logement",
+                    "type": "3"
+                  }
+                ]
+              },
+              "name": "Résidence",
+              "type": "2"
+            },
+            {
+              "code": "FRANCE_CULTURE",
+              "children": {
+                "site": [
+                  {
+                    "address": "8 Rue Scribe",
+                    "code": "DEMO11",
+                    "geo_position": {
+                      "lon": "2.331639",
+                      "lat": "48.872166"
+                    },
+                    "city": "Paris",
+                    "name": "Musée des Arts",
+                    "postal_code": "75009"
+                  }
+                ],
+                "organisation": []
+              },
+              "name": "Culture",
+              "type": "2"
+            },
+            {
+              "code": "FRANCE_COMPLEXESPORTIF",
+              "children": {
+                "site": [
+                  {
+                    "address": "Rue de l'Eglise",
+                    "code": "DEMO44",
+                    "geo_position": {
+                      "lon": "3.103",
+                      "lat": "50.0"
+                    },
+                    "city": "Paris",
+                    "name": "Stade de foot",
+                    "postal_code": "14000"
+                  },
+                  {
+                    "address": "7 place des sangliers",
+                    "code": "DEMO7",
+                    "geo_position": {
+                      "lon": "2.33",
+                      "lat": "48.573406"
+                    },
+                    "city": "Vitry-sur-seine",
+                    "name": "Centre sportif",
+                    "postal_code": "92100"
+                  },
+                  {
+                    "address": "Rue Principale",
+                    "code": "DEMO18",
+                    "geo_position": {
+                      "lon": "7.63059",
+                      "lat": "48.463123"
+                    },
+                    "city": "Strasbourg",
+                    "name": "Gymnase volley",
+                    "postal_code": "3011"
+                  }
+                ],
+                "organisation": []
+              },
+              "name": "Complexe sportif",
+              "type": "2"
+            },
+            {
+              "code": "FRANCE_CENTREADMINISTRATIF",
+              "children": {
+                "site": [
+                  {
+                    "address": "Rue Ferdinand Buisson",
+                    "code": "DEMO4",
+                    "geo_position": {
+                      "lon": "1.444209",
+                      "lat": "43.604652"
+                    },
+                    "city": "Toulouse",
+                    "name": "Bâtiment tertiaire administratif",
+                    "postal_code": "92100"
+                  }
+                ],
+                "organisation": []
+              },
+              "name": "Centre administratif",
+              "type": "2"
+            },
+            {
+              "code": "FRANCE_BUREAU",
+              "children": {
+                "site": [
+                  {
+                    "address": "Boulevard des Belges",
+                    "code": "DEMO34",
+                    "geo_position": {
+                      "lon": "3.3333",
+                      "lat": "47.977"
+                    },
+                    "city": "Vaugenets",
+                    "name": "Pépinière",
+                    "postal_code": "33700"
+                  },
+                  {
+                    "address": "Allee de l'Arche",
+                    "code": "DEMO38",
+                    "geo_position": {
+                      "lon": "4.0",
+                      "lat": "46.90987"
+                    },
+                    "city": "Villapourçon",
+                    "name": "Bureau d'étude",
+                    "postal_code": "92400"
+                  },
+                  {
+                    "address": "12 Wijnhaven ",
+                    "code": "DEMO17",
+                    "geo_position": {
+                      "lon": "4.488526",
+                      "lat": "49.91855"
+                    },
+                    "city": "Lille",
+                    "name": "Bureau postal",
+                    "postal_code": "3011"
+                  },
+                  {
+                    "address": "Avenue du General Leclerc",
+                    "code": "DEMO20",
+                    "geo_position": {
+                      "lon": "-1.658949",
+                      "lat": "48.100506"
+                    },
+                    "city": "Rennes",
+                    "name": "Bureau",
+                    "postal_code": "8100"
+                  }
+                ],
+                "organisation": []
+              },
+              "name": "Bureau",
+              "type": "2"
+            }
+          ]
+        },
+        "name": "France",
+        "type": "1"
+      },
+      {
+        "code": "ALLEMAGNE",
+        "children": {
+          "site": [
+            {
+              "address": "Kottbusser Damm",
+              "code": "DEMO14",
+              "geo_position": {
+                "lon": "13.532123",
+                "lat": "52.39272"
+              },
+              "city": "Berlin",
+              "name": "Centre d'exploitation",
+              "postal_code": "1012"
+            }
+          ],
+          "organisation": [
+            {
+              "code": "ALLEMAGNE_BUREAU",
+              "children": {
+                "site": [
+                  {
+                    "address": "22 Sloterdijkerweg ",
+                    "code": "DEMO16",
+                    "geo_position": {
+                      "lon": "13.0",
+                      "lat": "51.3"
+                    },
+                    "city": "Berlin",
+                    "name": "Bureau des associations",
+                    "postal_code": "1014"
+                  }
+                ],
+                "organisation": []
+              },
+              "name": "Bureau",
+              "type": "2"
+            }
+          ]
+        },
+        "name": "Allemagne",
+        "type": "1"
+      },
+      {
+        "code": "testncs",
+        "children": {
+          "site": [
+            {
+              "address": "1",
+              "code": "lavi_site_01",
+              "geo_position": {
+                "lon": "37.33892",
+                "lat": "55.595512"
+              },
+              "city": "Moscow",
+              "name": "Lavi's Site 07-11",
+              "postal_code": "1"
+            },
+            {
+              "address": "Test1186",
+              "code": "Test1186",
+              "geo_position": {
+                "lon": "12.0",
+                "lat": "12.0"
+              },
+              "city": "12",
+              "name": "Test1186",
+              "postal_code": "Test1186"
+            },
+            {
+              "code": "IFITEST",
+              "geo_position": {
+                "lon": "69.0",
+                "lat": "32.0"
+              },
+              "name": "LA01"
+            }
+          ],
+          "organisation": []
+        },
+        "name": "IDEX GROUPE TEST",
+        "type": "1"
+      },
+      {
+        "code": "-1",
+        "children": {
+          "site": [
+            {
+              "address": "102 Rue De La Carreterie",
+              "code": "ANA_Demo2",
+              "geo_position": {
+                "lon": "2.0",
+                "lat": "45.0"
+              },
+              "city": "Avignon",
+              "name": "ANA_Demo2",
+              "postal_code": "5263"
+            },
+            {
+              "code": "TTT",
+              "name": "Test"
+            },
+            {
+              "code": "ad1",
+              "name": "ad2"
+            },
+            {
+              "code": "test05032019",
+              "name": "abc"
+            },
+            {
+              "address": "--",
+              "code": "Test0101",
+              "geo_position": {
+                "lon": "0.0",
+                "lat": "0.0"
+              },
+              "name": "Test0101"
+            },
+            {
+              "code": "6u8yyiukuiuyi",
+              "geo_position": {
+                "lon": "0.0",
+                "lat": "0.0"
+              },
+              "name": "yuiyuiyuiyui"
+            },
+            {
+              "address": "Thanh Xuân",
+              "code": "Tesst+agian",
+              "geo_position": {
+                "lon": "0.0",
+                "lat": "0.0"
+              },
+              "city": "Hà Nội",
+              "name": "Phạm Thị Thu Hiền",
+              "postal_code": "100000"
+            },
+            {
+              "address": "Thanh Xuân",
+              "code": "missing code",
+              "geo_position": {
+                "lon": "0.0",
+                "lat": "0.0"
+              },
+              "city": "Hà Nội",
+              "name": "Phạm Thị Thu Hiền",
+              "postal_code": "100000"
+            },
+            {
+              "code": "create_from_object",
+              "geo_position": {
+                "lon": "0.0",
+                "lat": "0.0"
+              },
+              "name": "111"
+            },
+            {
+              "code": "NEw",
+              "geo_position": {
+                "lon": "0.0",
+                "lat": "0.0"
+              },
+              "name": "12"
+            },
+            {
+              "code": "TestA",
+              "geo_position": {
+                "lon": "0.0",
+                "lat": "0.0"
+              },
+              "name": "TestA"
+            },
+            {
+              "code": "testB",
+              "geo_position": {
+                "lon": "0.0",
+                "lat": "0.0"
+              },
+              "name": "testB"
+            }
+          ],
+          "organisation": []
+        },
+        "name": "Indéfini"
+      }
+    ]
+  },
+  "name": "energismeanalysis"
+}

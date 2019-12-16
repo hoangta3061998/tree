@@ -1,0 +1,8 @@
+<li>
+    <span ng-click="toggleVisibility(node)"> {{ ( (node.childrenVisibility && node.children.site.length) ) ? '+' : '-' }}</span>
+    <input ng-click="checkNode(node)" type="checkbox" ng-checked="node.checked">
+    <span style="font-weight: bold;">
+         {{ node.name }} ({{totalSite}})
+    </span>
+   
+</li>

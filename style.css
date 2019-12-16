@@ -1,0 +1,144 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+}
+
+.header {
+  background-color: tomato;
+  height: 5%;
+  width: 100%;
+}
+.main {
+  background-color: teal;
+  height: 90%;
+  width: 100%;
+}
+.sidebar {
+  background-color: violet;
+  width: 25%;
+  height: 100%;
+  float: left;
+}
+.sidebar-mini {
+  background-color: red;
+  width: 20%;
+  height: 100%;
+  float: left;
+  writing-mode: vertical-rl;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(180deg);
+  font-weight: bold;
+}
+.content {
+  width: 75%;
+  background-color: yellow;
+  height: 100%;
+  float: left;
+}
+.sidebar-icon {
+  width: 15%;
+  height: 100%;
+  background-color: chartreuse;
+  float: left;
+}
+.sidebar-content {
+  width: 85%;
+  height: 100%;
+  background-color: darkblue;
+  float: left;
+}
+.sidebar-content-header {
+  height: 8%;
+  width: 100%;
+  background-color: darkgrey;
+  position: relative;
+}
+.header-icon {
+  height: 100%;
+  width: 3.75%;
+  background-color: darksalmon;
+  text-align: center;
+}
+.header-icon > i {
+  position: relative;
+  top: calc(50% - 10px);
+}
+.perimetre {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.minimize-icon {
+  float: right;
+  position: relative;
+  margin: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  background-color:red;
+  right: 20px;
+  width: 25px;
+  height: 25px;
+
+}
+.perimetre a {
+  font-size: 18px;
+  font-weight: bold;
+  padding-left: 20px;
+}
+.minimize-icon a {
+  display: inline-block;
+  font-size: 25px;
+  background-color: red;
+
+  width: 25px;
+  height: 25px;
+  font-weight: bold;
+
+}
+.minimize-icon {
+  text-align: center;
+}
+.sidebar-main {
+  width: calc(100% - 20px);
+  height: calc(92% - 25px);
+  background-color: blueviolet;
+  position: relative;
+  padding-left: 20px;
+  padding-top: 25px;
+}
+.filtres {
+  display: inline;
+  font-size: 16px;
+  font-weight: bold;
+}
+.addBtn {
+  float: right;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  display: inline;
+  background-color: green;
+  border-radius: 50%;
+  padding: 5px;
+  width: 15px;
+  text-align: center;
+}
+.addBtn a {
+  font-weight: bold;
+}
+.maximize-ic {
+  position: absolute;
+  bottom: 10px;
+  background-color:white;
+  width:25px;
+  height: 25px;
+  text-align: center;
+  font-weight: bold;
+  font-size: large
+}
