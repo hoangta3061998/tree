@@ -20,6 +20,7 @@ ul.tree  li  span:first-child {
     height: 20px;
     overflow:hidden;
     text-overflow:ellipsis;
+    white-space: nowrap;
 }
 ul.tree{
     margin: 0;
