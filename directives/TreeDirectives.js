@@ -72,16 +72,22 @@ app.directive("organisation", function($compile) {
 
         $scope.checkNode = function(node) {
           node.checked = !node.checked;
-
           function checkChildren(c) {
             if (c.children.site) {
               angular.forEach(c.children.site, function(c) {
-                c.checked = node.checked;
+                if (c.isMatched) {
+                  c.checked = $scope.node.checked;
+                  /* console.log('IM TROUBLE'); */
+                } else {
+                  c.checked = false;
+                  /* console.log('IM TROUBLE 2'); */
+
+                }
               });
             }
             if (c.children.organisation.length > 0) {
               c.children.organisation.forEach(element => {
-                element.checked = node.checked;
+                element.checked = $scope.node.checked;
                 checkChildren(element);
               });
             }
@@ -121,48 +127,64 @@ app.directive("organisation", function($compile) {
           },
           true
         );
-        $scope.$watch("node.checked", function() {
-          try {
-            let parent = $scope.$parent.tree;
+        $scope.$watch(
+          "node.checked",
+          function() {
+            
+           function checkParent(){
+            try {
+              let parent = $scope.$parent.tree;
 
-            let site;
-            if (
-              parent.children.site.length > 0 &&
-              parent.children.organisation.length === 0
-            ) {
-              site = parent.children.site.filter(element => {
-                return element.checked === true;
-              });
-              if (site.length === parent.children.site.length) {
-                console.log("ok");
-                parent.checked = true;
-              } else {
-                console.log("not yet");
-                parent.checked = false;
-              }
-            } else if (
-              parent.children.site.length > 0 &&
-              parent.children.organisation.length > 0
-            ) {
-              let siteL = parent.children.site.filter(element => {
-                return element.checked === true;
-              });
-              let orgL = parent.children.organisation.filter(element => {
-                return element.checked === true;
-              });
+              let site;
               if (
-                siteL.length === parent.children.site.length &&
-                orgL.length === parent.children.organisation.length
+                parent.children.site &&
+                parent.children.organisation.length === 0
               ) {
-                parent.checked = true;
-              } else {
-                parent.checked = false;
+                site = parent.children.site.filter(element => {
+                  return element.checked === true && element.isMatched === true;
+                });
+                let matchedSite = parent.children.site.filter(element => {
+                  return element.isMatched === true;
+                });
+                if (
+                  site.length === matchedSite.length &&
+                  matchedSite.length > 0
+                ) {
+                  parent.checked = true;
+                } else {
+                  parent.checked = false;
+                }
+              } else if (
+                parent.children.site &&
+                parent.children.organisation.length > 0
+              ) {
+                let siteL = parent.children.site.filter(element => {
+                  return element.checked === true && element.isMatched === true;
+                });
+                let orgL = parent.children.organisation.filter(element => {
+                  return element.checked === true;
+                });
+                let matchedSite = parent.children.site.filter(element => {
+                  return element.isMatched === true;
+                });
+                if (
+                  siteL.length === matchedSite.length &&
+                  matchedSite.length > 0 &&
+                  orgL.length === parent.children.organisation.length
+                ) {
+                  parent.checked = true;
+                } else {
+                  parent.checked = false;
+                }
               }
+            } catch (err) {
+              console.log(err);
             }
-          } catch (err) {
-            console.log(err);
-          }
-        });
+           }
+           checkParent();
+          },
+          true
+        );
       }
     ]
   };
@@ -212,10 +234,8 @@ app.directive("site", function($compile) {
           '<ul class="tree" ng-if="!node.childrenVisibility"><site-tree children="node"></site-tree></ul>'
         )(scope);
         element.append(childNode);
-      } 
+      }
       if (scope.node && scope.node.children.organisation.length > 0) {
-        
-
         let childNode = $compile(
           '<ul class="tree" ng-if="!node.childrenVisibility"><organisation-tree children="node"></organisation-tree></ul>'
         )(scope);
@@ -234,61 +254,91 @@ app.directive("site", function($compile) {
         //Here we are marking check/un-check all the nodes.
         $scope.checkNode = function(node) {
           node.checked = !node.checked;
-
           function checkChildren(c) {
-            if (c.children.site) {
-              angular.forEach(c.children.site, function(c) {
-                c.checked = node.checked;
-              });
-            }
-            if (c.children.organisation.length > 0) {
-              c.children.organisation.forEach(element => {
-                checkChildren(element);
-              });
+            try {
+              if (c.children.site) {
+                angular.forEach(c.children.site, function(c) {
+                  if (c.isMatched) {
+                    c.checked = $scope.node.checked;
+                    
+                  } else {
+                    c.checked = false;
+                  }
+                });
+              }
+              if (c.children.organisation.length > 0) {
+                c.children.organisation.forEach(element => {
+                  checkChildren(element);
+                });
+              }
+            } catch (err) {
+              console.log(err);
             }
           }
 
-          checkChildren(node);
+          checkChildren($scope.node);
         };
-        $scope.$watch("node.checked", function() {
-          try {
-            let parent = $scope.$parent.tree;
-            let site;
-            if (
-              parent.children.site.length > 0 &&
-              parent.children.organisation.length === 0
-            ) {
-              site = parent.children.site.filter(element => {
-                return element.checked === true;
-              });
-              if (site.length === parent.children.site.length) {
-                parent.checked = true;
-              } else {
-                parent.checked = false;
-              }
-            } else if (
-              parent.children.site.length > 0 &&
-              parent.children.organisation.length > 0
-            ) {
-              let siteL = parent.children.site.filter(element => {
-                return element.checked === true;
-              });
-              let orgL = parent.children.organisation.filter(element => {
-                return element.checked === true;
-              });
-              if (
-                siteL.length === parent.children.site.length &&
-                orgL.length === parent.children.organisation.length
-              ) {
-                parent.checked = true;
-              } else {
-                parent.checked = false;
+        $scope.$watch(
+          "node.checked",
+          function() {
+            function checkParent() {
+              try {
+                let parent = $scope.$parent.tree;
+
+                let site;
+                if (
+                  parent.children.site &&
+                  parent.children.organisation.length === 0
+                ) {
+                  site = parent.children.site.filter(element => {
+                    return (
+                      element.checked === true && element.isMatched === true
+                    );
+                  });
+                  let matchedSite = parent.children.site.filter(element => {
+                    return element.isMatched === true;
+                  });
+                  if (
+                    site.length === matchedSite.length &&
+                    matchedSite.length > 0
+                  ) {
+                    parent.checked = true;
+                  } else {
+                    parent.checked = false;
+                  }
+                } else if (
+                  parent.children.site &&
+                  parent.children.organisation.length > 0
+                ) {
+                  let siteL = parent.children.site.filter(element => {
+                    return (
+                      element.checked === true && element.isMatched === true
+                    );
+                  });
+                  let orgL = parent.children.organisation.filter(element => {
+                    return element.checked === true;
+                  });
+                  let matchedSite = parent.children.site.filter(element => {
+                    return element.isMatched === true;
+                  });
+                  if (
+                    siteL.length === matchedSite.length &&
+                    matchedSite.length > 0 &&
+                    orgL.length === parent.children.organisation.length
+                  ) {
+                    parent.checked = true;
+                  } else {
+                    parent.checked = false;
+                  }
+                }
+              } catch (err) {
+                console.log(err);
               }
             }
-          } catch (err) {
-            console.log(err);
-          }
-        });
+            checkParent();
+          },
+          true
+        );
       }
     ]
   };

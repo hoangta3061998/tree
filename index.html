@@ -38,15 +38,19 @@
                   ng-model="searchString"
                 />
               </form>
-              <li>
-                <input ng-click="checkNode(node)" type="checkbox" ng-checked="node.checked" style="list-style: none;">
-                <span style="font-weight: bold;">
-                     Tout selectioner({{totalSite}})
-                </span>
-              </li>
-              <ul class="tree">
-                <organisation-tree children="tree"></organisation-tree>
-              </ul>
+              <div class="main-list">
+                <ul style="list-style: none;">
+                  <li>
+                  <input ng-click="checkAll(tree)" type="checkbox" ng-checked="tree.checked">
+                  <span style="font-weight: bold;">
+                       Tout selectioner({{totalSite}})
+                  </span>
+                </li>
+                </ul>
+                <ul class="tree">
+                  <organisation-tree children="tree"></organisation-tree>
+                </ul>
+              </div>
             </div>
           </div>
           <div class="sidebar-mini" ng-show="!showContent">

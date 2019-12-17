@@ -1,13 +1,13 @@
 <li ng-if="node.isMatched">
     <!-- <span ng-click="toggleVisibility(node)"> {{ ( (node.childrenVisibility && node.children.site.length) ) ? '+' : '-' }}</span> -->
     <input ng-click="checkNode(node)" type="checkbox" ng-checked="node.checked">
-    <span>
+    <span class="code">
          {{ node.code }}
     </span>
-    <span>
+    <span class="name">
          - {{node.name}}
     </span>
-    <span>
+    <span class="address">
          {{node.address}}
    </span>
 </li>

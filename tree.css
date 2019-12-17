@@ -3,13 +3,29 @@ ul.tree {
 }
 
 ul.tree > li {
-    margin: 10px;
+  
 }
 
-ul.tree  li  span {
+ul.tree  li  span:first-child {
     cursor: pointer;
+    
 }
 .loadBtn{
     font-size: xx-large;
     cursor: pointer;
+}
+.code,.name,.address{
+    display:inline-block;
+    width: 50px;
+    height: 20px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+ul.tree{
+    margin: 0;
+    padding:0;
+}
+site-tree{
+  position:relative;
+  left: 30px;
 }

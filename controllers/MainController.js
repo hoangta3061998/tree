@@ -4,38 +4,39 @@ app.controller("MainController", [
   function($scope, MyService) {
     MyService.getData().then(function(data) {
       $scope.tree = data;
-      function checkVisibility(data){
-        if(data.children.site){
+      function checkVisibility(data) {
+        if (data.children.site) {
           let site = data.children.site.filter(element => {
             return element.isMatched === true;
           });
-          if(site.length > 0){
+          if (site.length > 0) {
             data.childrenVisibility = true;
-          }else{
+          } else {
             data.childrenVisibility = false;
           }
         }
-        if(data.children.organisation.length > 0){
-            data.children.organisation.forEach(element => {
-              checkVisibility(element);
-            });
+        if (data.children.organisation.length > 0) {
+          data.children.organisation.forEach(element => {
+            checkVisibility(element);
+          });
         }
       }
-      
-      function matchedAllData(data){
-        try{
-          if(data.children.site){
+
+      function matchedAllData(data) {
+        try {
+          if (data.children.site) {
             data.children.site.forEach(element => {
               element.isMatched = true;
               element.checked = false;
             });
-          }if(data.children.organisation.length> 0){
+          }
+          if (data.children.organisation.length > 0) {
             data.children.organisation.forEach(element => {
               matchedAllData(element);
             });
           }
           return data;
-        }catch(err){
+        } catch (err) {
           console.log(err);
         }
       }
@@ -49,7 +50,19 @@ app.controller("MainController", [
             item.children.site.forEach(element => {
               if (element.code.toLowerCase().indexOf(text) !== -1) {
                 element.isMatched = true;
-              } else {
+              }/*  else if (element.name) {
+                if (element.name.toLowerCase().indexOf(text) !== -1) {
+                  element.isMatched = true;
+                } else {
+                  element.isMatched = false;
+                }
+              } else if (element.address) {
+                if (element.address.toLowerCase().indexOf(text) !== -1) {
+                  element.isMatched = true;
+                } else {
+                  element.isMatched = false;
+                }
+              } */ else {
                 element.isMatched = false;
               }
             });
@@ -64,67 +77,87 @@ app.controller("MainController", [
           console.log(err);
         }
       }
-      function openBlock(data){
-        try{
-        if(data.children.site){
-          let matched = data.children.site.filter(element => {
-              if(!element.isMatched){
-                  element.checked=false;
+      function openBlock(data) {
+        try {
+          if (data.children.site) {
+            let matched = data.children.site.filter(element => {
+              if (!element.isMatched) {
+                element.checked = false;
               }
               return element.isMatched === true;
-          });
-          if(matched.length > 0){
-            data.childrenVisibility = false;
-          } else{
-            data.childrenVisibility = true;
-            data.checked= false;
+            });
+            if (matched.length > 0) {
+              data.childrenVisibility = false;
+            } else {
+              data.childrenVisibility = true;
+              data.checked = false;
+            }
+          }else{
+            data.checked = false;
           }
+          if (data.children.organisation.length > 0) {
+            data.children.organisation.forEach(element => {
+              openBlock(element);
+            });
+          }
+          return data;
+        } catch (err) {
+          console.log(err);
         }
-        if(data.children.organisation.length>0){
-          data.children.organisation.forEach( element => {
-            openBlock(element);
-          });
-        }
-        return data;
-      }catch(err){
-        console.log(err);
-      }
       }
       search($scope.tree, $scope.searchString);
       openBlock($scope.tree);
-      console.log($scope.tree);
     };
     $scope.showContent = true;
-    $scope.minimize = function(){
+    $scope.minimize = function() {
       $scope.showContent = !$scope.showContent;
     };
-    $scope.selected ={val:0};
-    $scope.$watch('tree',function(){
-        function getSelected( data){
-         
-          try{
+    $scope.selected = { val: 0 };
+    $scope.$watch(
+      "tree",
+      function() {
+        function getSelected(data) {
+          try {
             var count = 0;
-            if(data.children.site){
+            if (data.children.site) {
               let site = data.children.site.filter(element => {
                 return element.checked === true;
               });
               count += site.length;
-            } else{
+            } else {
               count += 0;
             }
-            if(data.children.organisation.length > 0){
+            if (data.children.organisation.length > 0) {
               data.children.organisation.forEach(element => {
-               count+= getSelected(element);
+                count += getSelected(element);
               });
             }
             return count;
-          }catch(err){
+          } catch (err) {
             console.log(err);
           }
         }
         $scope.selected.val = getSelected($scope.tree);
         $scope.totalSite = $scope.countSite($scope.tree);
-    },true);
+        function treeCheck(tree) {
+          try {
+            let orgSite;
+            orgSite = tree.children.organisation.filter(element => {
+              return element.checked === true;
+            });
+            if (orgSite.length === tree.children.organisation.length) {
+              tree.checked = true;
+            } else {
+              tree.checked = false;
+            }
+          } catch (err) {
+            console.log(err);
+          }
+        }
+        treeCheck($scope.tree);
+      },
+      true
+    );
     $scope.countSite = function(node) {
       function count(item) {
         try {
@@ -149,5 +182,30 @@ app.controller("MainController", [
       return count(node);
     };
     $scope.totalSite = $scope.countSite($scope.node);
+    $scope.checkAll = function(tree) {
+      tree.checked = !tree.checked;
+      function checkChildren(c) {
+        try {
+          if (c.children.site) {
+            angular.forEach(c.children.site, function(c) {
+              if (c.isMatched) {
+                c.checked = tree.checked;
+              } else {
+                c.checked = false;
+              }
+            });
+          }
+          if (c.children.organisation.length > 0) {
+            c.children.organisation.forEach(element => {
+              element.checked = tree.checked;
+              checkChildren(element);
+            });
+          }
+        } catch (err) {
+          console.log(err);
+        }
+      }
+      checkChildren(tree);
+    };
   }
 ]);
