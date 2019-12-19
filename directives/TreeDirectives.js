@@ -147,8 +147,8 @@ app.directive("organisation", function($compile) {
                   return element.isMatched === true;
                 });
                 if (
-                  site.length === matchedSite.length &&
-                  matchedSite.length > 0
+                  site.length === matchedSite.length/*  &&
+                  matchedSite.length > 0 */
                 ) {
                   parent.checked = true;
                 } else {
@@ -169,7 +169,7 @@ app.directive("organisation", function($compile) {
                 });
                 if (
                   siteL.length === matchedSite.length &&
-                  matchedSite.length > 0 &&
+                 /*  matchedSite.length > 0 && */
                   orgL.length === parent.children.organisation.length
                 ) {
                   parent.checked = true;
@@ -224,6 +224,13 @@ app.directive("site", function($compile) {
 
     link: function(scope, element) {
       // here we are checking that if current node has children then compiling/rendering children
+      
+      /* var elm = angular.element(document.querySelectorAll(".code")); */
+      var elm =angular.element(document.querySelectorAll('.code'));
+      console.log(elm);
+      elm.on('mouseenter',function(){
+        console.log('ok');
+      });
       if (
         scope.node &&
         scope.node.children.site &&
@@ -299,8 +306,8 @@ app.directive("site", function($compile) {
                     return element.isMatched === true;
                   });
                   if (
-                    site.length === matchedSite.length &&
-                    matchedSite.length > 0
+                    site.length === matchedSite.length /* &&
+                    matchedSite.length > 0 */
                   ) {
                     parent.checked = true;
                   } else {
@@ -323,7 +330,7 @@ app.directive("site", function($compile) {
                   });
                   if (
                     siteL.length === matchedSite.length &&
-                    matchedSite.length > 0 &&
+                    /* matchedSite.length > 0 && */
                     orgL.length === parent.children.organisation.length
                   ) {
                     parent.checked = true;

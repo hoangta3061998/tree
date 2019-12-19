@@ -14,7 +14,7 @@ ul.tree  li  span:first-child {
     font-size: xx-large;
     cursor: pointer;
 }
-.code,.name,.address{
+.code,.address{
     display:inline-block;
     width: 50px;
     height: 20px;

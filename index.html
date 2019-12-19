@@ -5,7 +5,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="tree.css" />
+    <script
+      src="https://code.jquery.com/jquery-1.7.2.js"
+      integrity="sha256-FxfqH96M63WENBok78hchTCDxmChGFlo+/lFIPcZPeI="
+      crossorigin="anonymous"
+    ></script>
     <script language="javascript" src="libs/angular.min.js"></script>
+    
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </head>
   <body>
@@ -25,7 +31,11 @@
               </div>
               <div class="minimize-icon">
                 <!-- <a ng-click="minimize()">-</a> -->
-                <i class="fa fa-window-minimize fa-xs" aria-hidden="true" ng-click="minimize()"></i>
+                <i
+                  class="fa fa-window-minimize fa-xs"
+                  aria-hidden="true"
+                  ng-click="minimize()"
+                ></i>
               </div>
             </div>
             <div class="sidebar-main">
@@ -41,21 +51,29 @@
               <div class="main-list">
                 <ul style="list-style: none;">
                   <li>
-                  <input ng-click="checkAll(tree)" type="checkbox" ng-checked="tree.checked">
-                  <span style="font-weight: bold;">
-                       Tout selectioner({{totalSite}})
-                  </span>
-                </li>
+                    <input
+                      ng-click="checkAll(tree)"
+                      type="checkbox"
+                      ng-checked="tree.checked"
+                    />
+                    <span style="font-weight: bold;">
+                      Tout selectioner({{totalSite}})
+                    </span>
+                  </li>
                 </ul>
                 <ul class="tree">
                   <organisation-tree children="tree"></organisation-tree>
                 </ul>
               </div>
+              <span class="code">{{tree.code}} + {{tree.code}}</span>
+              <span class="code">asfasgalskgjakdlgjklsdajgklsdajlkg</span>
             </div>
           </div>
           <div class="sidebar-mini" ng-show="!showContent">
             <div>Perimetre</div>
-            <div class="maximize-ic"><i class="fas fa-plus fa-xs" ng-click="minimize()"></i></div>
+            <div class="maximize-ic">
+              <i class="fas fa-plus fa-xs" ng-click="minimize()"></i>
+            </div>
           </div>
         </div>
 
@@ -66,5 +84,6 @@
     <script src="controllers/MainController.js"></script>
     <script src="services/MyService.js"></script>
     <script src="directives/TreeDirectives.js"></script>
+    <script src="jq.js"></script>
   </body>
 </html>

@@ -2,10 +2,7 @@
     <!-- <span ng-click="toggleVisibility(node)"> {{ ( (node.childrenVisibility && node.children.site.length) ) ? '+' : '-' }}</span> -->
     <input ng-click="checkNode(node)" type="checkbox" ng-checked="node.checked">
     <span class="code">
-         {{ node.code }}
-    </span>
-    <span class="name">
-         - {{node.name}}
+         {{ node.code }} - {{node.name}}
     </span>
     <span class="address">
          {{node.address}}
