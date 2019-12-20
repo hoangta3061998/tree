@@ -1,6 +1,6 @@
 <li ng-if="node.isMatched">
-    <!-- <span ng-click="toggleVisibility(node)"> {{ ( (node.childrenVisibility && node.children.site.length) ) ? '+' : '-' }}</span> -->
-    <input ng-click="checkNode(node)" type="checkbox" ng-checked="node.checked">
+     
+    <input ng-click="checkNode(node)" type="checkbox" ng-checked="node.checked" class="regular-checkbox">
     <span class="code">
          {{ node.code }} - {{node.name}}
     </span>

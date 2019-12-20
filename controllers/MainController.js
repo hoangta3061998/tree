@@ -37,7 +37,7 @@ app.controller("MainController", [
           }
           return data;
         } catch (err) {
-          console.log(err);
+         
         }
       }
       matchedAllData($scope.tree);
@@ -50,19 +50,13 @@ app.controller("MainController", [
             item.children.site.forEach(element => {
               if (element.code.toLowerCase().indexOf(text) !== -1) {
                 element.isMatched = true;
-              }/*  else if (element.name) {
+              } else if (element.name) {
                 if (element.name.toLowerCase().indexOf(text) !== -1) {
                   element.isMatched = true;
                 } else {
                   element.isMatched = false;
                 }
-              } else if (element.address) {
-                if (element.address.toLowerCase().indexOf(text) !== -1) {
-                  element.isMatched = true;
-                } else {
-                  element.isMatched = false;
-                }
-              } */ else {
+              } else {
                 element.isMatched = false;
               }
             });
@@ -74,7 +68,7 @@ app.controller("MainController", [
           }
           return item;
         } catch (err) {
-          console.log(err);
+          
         }
       }
       function openBlock(data) {
@@ -88,21 +82,28 @@ app.controller("MainController", [
             });
             if (matched.length > 0) {
               data.childrenVisibility = false;
+              data.matched = true;
             } else {
               data.childrenVisibility = true;
               data.checked = false;
+              data.matched = false;
             }
-          }else{
+          } else {
             data.checked = false;
           }
           if (data.children.organisation.length > 0) {
             data.children.organisation.forEach(element => {
               openBlock(element);
+              if(element.matched){
+                data.matched = true;
+              }
             });
+          }
+          if(data.matched){
+            data.childrenVisibility = false;
           }
           return data;
         } catch (err) {
-          console.log(err);
         }
       }
       search($scope.tree, $scope.searchString);
@@ -134,7 +135,7 @@ app.controller("MainController", [
             }
             return count;
           } catch (err) {
-            console.log(err);
+            
           }
         }
         $scope.selected.val = getSelected($scope.tree);
@@ -151,7 +152,6 @@ app.controller("MainController", [
               tree.checked = false;
             }
           } catch (err) {
-            console.log(err);
           }
         }
         treeCheck($scope.tree);
@@ -175,7 +175,6 @@ app.controller("MainController", [
           }
           return c;
         } catch (err) {
-          console.log(err);
         }
       }
 
@@ -202,7 +201,6 @@ app.controller("MainController", [
             });
           }
         } catch (err) {
-          console.log(err);
         }
       }
       checkChildren(tree);

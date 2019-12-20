@@ -16,9 +16,21 @@ app.directive("organisationTree", function() {
           return pageSize * pagesShown;
         };
         $scope.hasMoreItemsToShow = function() {
-          return (
-            pagesShown < $scope.tree.children.organisation.length / pageSize
-          );
+          if($scope.tree){
+            if($scope.tree.children){
+              if($scope.tree.children.organisation){
+                if($scope.tree.children.organisation.length > 0){
+                  return  pagesShown < $scope.tree.children.organisation.length / pageSize;
+                }
+              } else{
+                return false;
+              }
+            } else{
+              return false;
+            }
+          } else{
+            return false;
+          }
         };
         $scope.showMoreItems = function() {
           pagesShown = pagesShown + 1;
@@ -34,29 +46,21 @@ app.directive("organisation", function($compile) {
     templateUrl: "templates/organisation.html",
 
     link: function(scope, element) {
-      /*
-            here we are checking that if current node has children then compiling/rendering children.
-            */
-
-      if (
-        scope.node &&
-        scope.node.children.site &&
-        scope.node.children.site.length > 0
-      ) {
-        /* scope.node.childrenVisibility = true; */
-
-        let childNode = $compile(
-          '<ul class="tree" ng-if="!node.childrenVisibility"><site-tree children="node"></site-tree></ul>'
-        )(scope);
-        element.append(childNode);
-      }
-      if (scope.node && scope.node.children.organisation.length > 0) {
-        /* scope.node.childrenVisibility = true; */
-
-        let childNode = $compile(
-          '<ul class="tree" ng-if="!node.childrenVisibility"><organisation-tree children="node"></organisation-tree></ul>'
-        )(scope);
-        element.append(childNode);
+      if(scope.node.children){
+        if(scope.node.children.site){
+          let childNode = $compile(
+            '<ul class="tree" ng-if="!node.childrenVisibility"><site-tree children="node"></site-tree></ul>'
+          )(scope);
+          element.append(childNode);
+        }
+        if(scope.node.children.organisation){
+          if(scope.node.children.organisation.length>0){
+            let childNode = $compile(
+              '<ul class="tree" ng-if="!node.childrenVisibility"><organisation-tree children="node"></organisation-tree></ul>'
+            )(scope);
+            element.append(childNode);
+          }
+        }
       }
     },
     controller: [
@@ -77,11 +81,8 @@ app.directive("organisation", function($compile) {
               angular.forEach(c.children.site, function(c) {
                 if (c.isMatched) {
                   c.checked = $scope.node.checked;
-                  /* console.log('IM TROUBLE'); */
                 } else {
                   c.checked = false;
-                  /* console.log('IM TROUBLE 2'); */
-
                 }
               });
             }
@@ -113,7 +114,6 @@ app.directive("organisation", function($compile) {
               }
               return c;
             } catch (err) {
-              console.log(err);
             }
           }
 
@@ -130,58 +130,61 @@ app.directive("organisation", function($compile) {
         $scope.$watch(
           "node.checked",
           function() {
-            
-           function checkParent(){
-            try {
-              let parent = $scope.$parent.tree;
+            function checkParent() {
+              try {
+                let parent = $scope.$parent.tree;
 
-              let site;
-              if (
-                parent.children.site &&
-                parent.children.organisation.length === 0
-              ) {
-                site = parent.children.site.filter(element => {
-                  return element.checked === true && element.isMatched === true;
-                });
-                let matchedSite = parent.children.site.filter(element => {
-                  return element.isMatched === true;
-                });
+                let site;
                 if (
-                  site.length === matchedSite.length/*  &&
+                  parent.children.site &&
+                  parent.children.organisation.length === 0
+                ) {
+                  site = parent.children.site.filter(element => {
+                    return (
+                      element.checked === true && element.isMatched === true
+                    );
+                  });
+                  let matchedSite = parent.children.site.filter(element => {
+                    return element.isMatched === true;
+                  });
+                  if (
+                    site.length ===
+                    matchedSite.length /*  &&
                   matchedSite.length > 0 */
+                  ) {
+                    parent.checked = true;
+                  } else {
+                    parent.checked = false;
+                  }
+                } else if (
+                  parent.children.site &&
+                  parent.children.organisation.length > 0
                 ) {
-                  parent.checked = true;
-                } else {
-                  parent.checked = false;
+                  let siteL = parent.children.site.filter(element => {
+                    return (
+                      element.checked === true && element.isMatched === true
+                    );
+                  });
+                  let orgL = parent.children.organisation.filter(element => {
+                    return element.checked === true;
+                  });
+                  let matchedSite = parent.children.site.filter(element => {
+                    return element.isMatched === true;
+                  });
+                  if (
+                    siteL.length === matchedSite.length &&
+                    /*  matchedSite.length > 0 && */
+                    orgL.length === parent.children.organisation.length
+                  ) {
+                    parent.checked = true;
+                  } else {
+                    parent.checked = false;
+                  }
                 }
-              } else if (
-                parent.children.site &&
-                parent.children.organisation.length > 0
-              ) {
-                let siteL = parent.children.site.filter(element => {
-                  return element.checked === true && element.isMatched === true;
-                });
-                let orgL = parent.children.organisation.filter(element => {
-                  return element.checked === true;
-                });
-                let matchedSite = parent.children.site.filter(element => {
-                  return element.isMatched === true;
-                });
-                if (
-                  siteL.length === matchedSite.length &&
-                 /*  matchedSite.length > 0 && */
-                  orgL.length === parent.children.organisation.length
-                ) {
-                  parent.checked = true;
-                } else {
-                  parent.checked = false;
-                }
+              } catch (err) {
               }
-            } catch (err) {
-              console.log(err);
             }
-           }
-           checkParent();
+            checkParent();
           },
           true
         );
@@ -213,7 +216,10 @@ app.directive("siteTree", function() {
           pagesShown = pagesShown + 1;
         };
       }
-    ]
+    ],
+    link: function(scope, element) {
+     var e = element.find('.code');
+    }
   };
 });
 app.directive("site", function($compile) {
@@ -224,29 +230,21 @@ app.directive("site", function($compile) {
 
     link: function(scope, element) {
       // here we are checking that if current node has children then compiling/rendering children
-      
-      /* var elm = angular.element(document.querySelectorAll(".code")); */
-      var elm =angular.element(document.querySelectorAll('.code'));
-      console.log(elm);
-      elm.on('mouseenter',function(){
-        console.log('ok');
-      });
-      if (
-        scope.node &&
-        scope.node.children.site &&
-        scope.node.children.site.length > 0
-      ) {
-        scope.node.childrenVisibility = true;
-        let childNode = $compile(
-          '<ul class="tree" ng-if="!node.childrenVisibility"><site-tree children="node"></site-tree></ul>'
-        )(scope);
-        element.append(childNode);
-      }
-      if (scope.node && scope.node.children.organisation.length > 0) {
-        let childNode = $compile(
-          '<ul class="tree" ng-if="!node.childrenVisibility"><organisation-tree children="node"></organisation-tree></ul>'
-        )(scope);
-        element.append(childNode);
+      if(scope.node.children){
+        if(scope.node.children.site){
+          let childNode = $compile(
+            '<ul class="tree" ng-if="!node.childrenVisibility"><site-tree children="node"></site-tree></ul>'
+          )(scope);
+          element.append(childNode);
+        }
+        if(scope.node.children.organisation){
+          if(scope.node.children.organisation.length>0){
+            let childNode = $compile(
+              '<ul class="tree" ng-if="!node.childrenVisibility"><organisation-tree children="node"></organisation-tree></ul>'
+            )(scope);
+            element.append(childNode);
+          }
+        }
       }
     },
     controller: [
@@ -267,7 +265,6 @@ app.directive("site", function($compile) {
                 angular.forEach(c.children.site, function(c) {
                   if (c.isMatched) {
                     c.checked = $scope.node.checked;
-                    
                   } else {
                     c.checked = false;
                   }
@@ -279,7 +276,6 @@ app.directive("site", function($compile) {
                 });
               }
             } catch (err) {
-              console.log(err);
             }
           }
 
@@ -306,7 +302,8 @@ app.directive("site", function($compile) {
                     return element.isMatched === true;
                   });
                   if (
-                    site.length === matchedSite.length /* &&
+                    site.length ===
+                    matchedSite.length /* &&
                     matchedSite.length > 0 */
                   ) {
                     parent.checked = true;
@@ -339,7 +336,6 @@ app.directive("site", function($compile) {
                   }
                 }
               } catch (err) {
-                console.log(err);
               }
             }
             checkParent();

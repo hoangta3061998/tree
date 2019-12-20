@@ -49,24 +49,27 @@
                 />
               </form>
               <div class="main-list">
+                
                 <ul style="list-style: none;">
+                  
                   <li>
+                    <div class="selectioner">
                     <input
                       ng-click="checkAll(tree)"
                       type="checkbox"
-                      ng-checked="tree.checked"
+                      ng-checked="tree.checked" class="regular-checkbox sltbox"
                     />
-                    <span style="font-weight: bold;">
+                    <span style="font-weight: bold;" class="slttext">
                       Tout selectioner({{totalSite}})
                     </span>
                   </li>
+                </div>
                 </ul>
+              
                 <ul class="tree">
                   <organisation-tree children="tree"></organisation-tree>
                 </ul>
               </div>
-              <span class="code">{{tree.code}} + {{tree.code}}</span>
-              <span class="code">asfasgalskgjakdlgjklsdajgklsdajlkg</span>
             </div>
           </div>
           <div class="sidebar-mini" ng-show="!showContent">
