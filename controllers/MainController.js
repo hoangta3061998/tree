@@ -11,9 +11,14 @@ app.controller("MainController", [
           });
           if (site.length > 0) {
             data.childrenVisibility = true;
+            data.class="raw";
           } else {
             data.childrenVisibility = false;
+            data.class="expanded";
           }
+        }else{
+          data.childrenVisibility =false;
+          data.class ="raw";   
         }
         if (data.children.organisation.length > 0) {
           data.children.organisation.forEach(element => {
@@ -82,9 +87,11 @@ app.controller("MainController", [
             });
             if (matched.length > 0) {
               data.childrenVisibility = false;
+              data.class="expanded";
               data.matched = true;
             } else {
               data.childrenVisibility = true;
+              data.class="raw";
               data.checked = false;
               data.matched = false;
             }
@@ -101,6 +108,7 @@ app.controller("MainController", [
           }
           if(data.matched){
             data.childrenVisibility = false;
+            data.class="expanded";
           }
           return data;
         } catch (err) {

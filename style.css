@@ -10,7 +10,7 @@
   border: 1px solid black;
 }
 .main {
-  background-color: teal;
+  background-color: lightblue;
   height: 90%;
   width: 100%;
 }
@@ -21,8 +21,8 @@
   float: left;
 }
 .sidebar-mini {
-  background-color: lightgrey;
-  width: 20%;
+  background-color: #DBDBDB;
+  width: 10%;
   height: 100%;
   float: left;
   writing-mode: vertical-rl;
@@ -31,13 +31,14 @@
   align-items: center;
   transform: rotate(180deg);
   font-weight: bold;
+  box-shadow: 0px 0px 2px grey;
 }
-.content {
+/* .content {
   width: 75%;
   background-color: lightblue;
   height: 100%;
   float: left;
-}
+} */
 .sidebar-icon {
   width: 15%;
   height: 100%;
@@ -53,8 +54,9 @@
 .sidebar-content-header {
   height: 8%;
   width: 100%;
-  background-color: lightgrey;
+  background-color: #DBDBDB;
   position: relative;
+  box-shadow: 2px 0px 5px grey;
 }
 .header-icon {
   height: 100%;
@@ -99,10 +101,12 @@
   width: 25px;
   height: 25px;
   font-weight: bold;
+  cursor: pointer;
 
 }
 .minimize-icon {
   text-align: center;
+  cursor: pointer;
 }
 .sidebar-main {
   width: calc(100% - 20px);
@@ -111,6 +115,7 @@
   position: relative;
   padding-left: 20px;
   padding-top: 25px;
+  box-shadow: 2px 0px 5px grey;
 }
 .filtres {
   display: inline;
@@ -122,14 +127,13 @@
   position: absolute;
   right: 20px;
   top: 20px;
-  font-size: 16px;
+  font-size: x-large;
   font-weight: bold;
   display: inline;
-  background-color: darkgreen;
+  background-color: #4EBD92;
   border-radius: 50%;
-  padding: 5px;
-  width: 15px;
-  height: 15px;
+  width: 25px;
+  height: 25px;
   text-align: center;
   color: white;
 }
@@ -140,18 +144,21 @@
   position: absolute;
   bottom: 10px;
   background-color:white;
-  width:25px;
-  height: 25px;
+  width:22px;
+  height: 22px;
   text-align: center;
   font-weight: bold;
-  font-size: large
+  font-size: x-large
+}
+.maximize-ic a{
+	cursor: pointer;
 }
 .regular-checkbox {
 	-webkit-appearance: none;
-	background-color: darkblue;
+	background-color: 	#1761AA;
 	border: 1px solid #cacece;
 	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
-	padding: 5px;
+	padding: 6px;
 	border-radius: 3px;
 	display: inline-block;
   position: relative;
@@ -173,6 +180,38 @@
 	font-size: 8px;
 	position: absolute;
 	top: 0px;
-	left: 1px;
+	left: 3px;
 	color: white;
+}
+
+.search { 
+  position: relative; 
+  margin: 0 auto;
+  padding-left: 7px;
+  padding-right: 25px;
+}
+.search input { 
+  text-indent: 7px;
+   font-family:  FontAwesome, sans-serif;
+   width: 100%;
+   margin-top: 15px;
+   height: 25px;
+   border: 1px solid lightgrey;
+   border-radius: 3px;
+}
+.search .fa-search { 
+  position: absolute;
+  top: 24px;
+  left: 88%;
+  font-size: 10px;
+}
+.perimetre{
+	font-family: Tahoma;
+}
+.filtres{
+	font-family: Tahoma;
+}
+.selectioner{
+	font-family: Tahoma;
+	font-size: small;
 }

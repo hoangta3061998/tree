@@ -66,14 +66,28 @@ app.directive("organisation", function($compile) {
     controller: [
       "$scope",
       function($scope) {
+        $scope.class = $scope.node.class;
         /*This function is for just toggle the visibility of children */
         $scope.toggleVisibility = function(node) {
           if (node.children) {
-            node.childrenVisibility = !node.childrenVisibility;
+            node.childrenVisibility = !node.childrenVisibility; 
           }
+          if($scope.node.class === "raw"){
+            $scope.node.class = "expanded";
+          } else{
+            $scope.node.class = "raw";
+          }
+          $scope.class = $scope.node.class;
         };
         //Here we are marking check/un-check all the nodes.
-
+        $scope.$watch('node.childrenVisibility',function(){
+          if($scope.node.childrenVisibility){
+            $scope.node.class = "raw";
+          }else{
+            $scope.node.class = "expanded";
+          }
+          $scope.class = $scope.node.class;
+        });
         $scope.checkNode = function(node) {
           node.checked = !node.checked;
           function checkChildren(c) {

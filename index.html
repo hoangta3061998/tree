@@ -3,13 +3,10 @@
   <head>
     <title></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="tree.css" />
-    <script
-      src="https://code.jquery.com/jquery-1.7.2.js"
-      integrity="sha256-FxfqH96M63WENBok78hchTCDxmChGFlo+/lFIPcZPeI="
-      crossorigin="anonymous"
-    ></script>
+
     <script language="javascript" src="libs/angular.min.js"></script>
     
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -41,13 +38,17 @@
             <div class="sidebar-main">
               <div><a class="filtres">Filtres({{selected.val}})</a></div>
               <div class="addBtn"><a>+</a></div>
-              <form ng-submit="search()">
-                <input
-                  type="text"
-                  placeholder="Enter search"
-                  ng-model="searchString"
-                />
-              </form>
+              <div class="search">
+                <form ng-submit="search()">
+                  <span <i class="fa fa-search"></span>
+                  <input
+                    type="text"
+                    placeholder="Enter search"
+                    ng-model="searchString" class="searchInput"
+                  />
+                </form>
+              </div>
+              
               <div class="main-list">
                 
                 <ul style="list-style: none;">
@@ -71,16 +72,18 @@
                 </ul>
               </div>
             </div>
-          </div>
-          <div class="sidebar-mini" ng-show="!showContent">
-            <div>Perimetre</div>
-            <div class="maximize-ic">
-              <i class="fas fa-plus fa-xs" ng-click="minimize()"></i>
+            <div class="sidebar-mini" ng-show="!showContent">
+              <div>Perimetre</div>
+              <div class="maximize-ic">
+                <!-- <i class="fas fa-plus fa-xl" ng-click="minimize()"></i> -->
+                <a ng-click="minimize()">+</a>
+              </div>
             </div>
           </div>
+          
         </div>
 
-        <div class="content"></div>
+        <!-- <div class="content"></div> -->
       </div>
     </div>
     <script src="app.js"></script>

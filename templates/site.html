@@ -1,10 +1,16 @@
 <li ng-if="node.isMatched">
-     
-    <input ng-click="checkNode(node)" type="checkbox" ng-checked="node.checked" class="regular-checkbox">
+  <div class="site-raw">
+    <input
+      ng-click="checkNode(node)"
+      type="checkbox"
+      ng-checked="node.checked"
+      class="regular-checkbox"
+    />
     <span class="code">
-         {{ node.code }} - {{node.name}}
+      {{ node.code }} - {{node.name}}
     </span>
     <span class="address">
-         {{node.address}}
-   </span>
+      {{node.address}}
+    </span>
+  </div>
 </li>
