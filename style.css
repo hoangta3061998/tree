@@ -48,8 +48,10 @@
 .sidebar-content {
   width: 85%;
   height: 100%;
-  background-color: darkblue;
+  background-color: white;
   float: left;
+  overflow:auto;
+  box-shadow: 2px 0px 5px grey;
 }
 .sidebar-content-header {
   height: 8%;
@@ -115,12 +117,12 @@
   position: relative;
   padding-left: 20px;
   padding-top: 25px;
-  box-shadow: 2px 0px 5px grey;
 }
 .filtres {
   display: inline;
   font-size: 16px;
   font-weight: bold;
+  margin-left: 6px;
 }
 .addBtn {
   float: right;
@@ -204,6 +206,7 @@
   top: 24px;
   left: 88%;
   font-size: 10px;
+  color: #838383;
 }
 .perimetre{
 	font-family: Tahoma;

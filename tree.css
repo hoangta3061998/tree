@@ -64,8 +64,7 @@ color: gray;
   width: 90px;
   height: 20px;
   overflow:hidden;
-  text-overflow:ellipsis;
-  white-space: nowrap;
+ 
 }
 .title{
 position: absolute;
@@ -133,3 +132,36 @@ organisation-tree organisation-tree{
   position: relative;
   right: -14px;
 }
+.incode{
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+ }
+.code:hover .incode{
+   animation: marquee 5s linear infinite;
+ }
+@keyframes marquee {
+  from {
+     
+    transform: translateX(100%);
+    overflow: visible
+   
+   }
+  to {
+    
+    transform: translateX(-200%);
+    overflow: visible;
+   }
+}
+.inaddress{
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+ }
+.address:hover .inaddress{
+   animation: marquee 5s linear infinite;
+ }

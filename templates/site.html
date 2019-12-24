@@ -6,11 +6,17 @@
       ng-checked="node.checked"
       class="regular-checkbox"
     />
-    <span class="code">
+    <!-- <span class="code">
       {{ node.code }} - {{node.name}}
     </span>
     <span class="address">
       {{node.address}}
-    </span>
+    </span> -->
+    <div class="code">
+      <span class="incode">{{node.code}} - {{node.name}}</span>
+    </div>
+    <div class="address">
+      <span class="inaddress">{{node.address}}</span>
+    </div>
   </div>
 </li>
